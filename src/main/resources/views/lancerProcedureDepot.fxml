@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<BorderPane prefHeight="600" prefWidth="800"
+            style="-fx-background-color:#DDD"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.espace_citoyen.controllers.LancerProcedureDepot">
+    <padding>
+        <Insets topRightBottomLeft="30"/>
+    </padding>
+    <top>
+        <BorderPane prefHeight="50" prefWidth="700"
+                    style="-fx-background-color:#BF9000">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <left>
+                <HBox>
+                    <padding>
+                        <Insets left="10" />
+                    </padding>
+                    <ImageView>
+                        <Image requestedHeight="80"
+                               requestedWidth="80"
+                               url="@/images/lancer.png"/>
+                    </ImageView>
+                </HBox>
+            </left>
+
+            <right>
+                <HBox>
+                    <padding>
+                        <Insets right="10" top="10" />
+                    </padding>
+                    <Label text="Lancer une procédure > " textFill="white"
+                           BorderPane.alignment="TOP_RIGHT">
+                        <font>
+                            <Font name="Bell MT Bold" size="18" />
+                        </font>
+                    </Label>
+                    <Label fx:id="nomProc" >
+                        <font>
+                            <Font name="Bell MT Bold" size="18" />
+                        </font>
+                    </Label>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <!--Table de listing des documents à uploaded-->
+        <TitledPane text="Liste des documents">
+            <padding>
+                <Insets top="30"/>
+            </padding>
+            <TableView fx:id="tableDocs">
+                <padding>
+                    <Insets left="10" right="10" top="10"/>
+                </padding>
+                <columns>
+                    <TableColumn fx:id="numero" prefWidth="128" text="Numéro">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="numero" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="nomDoc" prefWidth="300"
+                                 text="Nom du document">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nomProc" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="fichier" prefWidth="300" text="Déposer Ici">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="fichier" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </TitledPane>
+    </center>
+    <bottom>
+        <BorderPane>
+            <padding>
+                <Insets top="20"/>
+            </padding>
+            <left>
+                <HBox >
+                    <!--Bouton de retourner-->
+                    <Button fx:id="retour" onAction="#onRetour" prefHeight="40"
+                            prefWidth="40" style="-fx-background-color:transparent">
+                        <graphic>
+                            <ImageView>
+                                <Image requestedHeight="40" requestedWidth="40"
+                                       url="@/images/back.png"/>
+                            </ImageView>
+                        </graphic>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                    </Button>
+                    <Label text="Précédent">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        <font>
+                            <Font name="Bell MT Bold" size="20" />
+                        </font>
+                    </Label>
+                </HBox>
+
+            </left>
+            <right>
+                <Button onAction="#saveProcedure" fx:id="lancer"
+                        text="Envoyer mes documents"
+                        textFill="white"
+                        style="-fx-background-color:#FF9900"/>
+            </right>
+        </BorderPane>
+    </bottom>
+</BorderPane>

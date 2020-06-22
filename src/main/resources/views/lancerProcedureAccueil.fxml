@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="600" prefWidth="800"
+            style="-fx-background-color:#DDD"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.espace_citoyen.controllers.LancerProcedureAccueil">
+    <padding>
+        <Insets topRightBottomLeft="30"/>
+    </padding>
+    <center>
+        <VBox spacing="30">
+            <BorderPane prefHeight="50" prefWidth="700"
+                        style="-fx-background-color:#BF9000">
+                <padding>
+                    <Insets topRightBottomLeft="10"/>
+                </padding>
+                <left>
+                    <HBox>
+                        <padding>
+                            <Insets left="10" />
+                        </padding>
+                        <ImageView>
+                            <Image requestedHeight="80"
+                                   requestedWidth="80"
+                                   url="@/images/lancer.png"/>
+                        </ImageView>
+                    </HBox>
+                </left>
+
+                <right>
+                    <Label  text="Lancer une procédure" textFill="white" BorderPane.alignment="TOP_RIGHT">
+                        <padding>
+                            <Insets right="10" top="10" />
+                        </padding>
+                        <font>
+                            <Font name="Bell MT Bold" size="24" />
+                        </font>
+                    </Label>
+                </right>
+            </BorderPane>
+
+            <!--Table de listing des divisions-->
+            <TitledPane text="Liste des procédures">
+                <VBox spacing="20">
+                    <BorderPane>
+                        <left>
+                            <ComboBox fx:id="division"
+                                      prefWidth="250"/>
+                        </left>
+                        <right>
+                            <HBox spacing="10">
+                                <TextField fx:id="textSearch"/>
+                                <Button onAction="#searchProcedure" fx:id="onSearch"
+                                        style="-fx-background-color:#009E0F"
+                                        text="Rechercher"
+                                        textFill="white"/>
+                            </HBox>
+                        </right>
+                    </BorderPane>
+                    <TableView fx:id="tableProcedures">
+                        <padding>
+                            <Insets left="10" right="10" top="10"/>
+                        </padding>
+                        <columns>
+                            <TableColumn fx:id="numero" prefWidth="128" text="Numéro">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="numero" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="nomProc" prefWidth="200"
+                                         text="Nom de la procédure">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="nomProc" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="nomDiv" prefWidth="200" text="Division">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="nomDiv" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="lancer" prefWidth="220" text="Actions">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="lancer" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </TitledPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

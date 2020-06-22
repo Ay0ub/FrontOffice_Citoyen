@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<BorderPane prefHeight="600" prefWidth="800"
+            style="-fx-background-color:#DDD"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.espace_citoyen.controllers.mesProceduresConsulter">
+    <padding>
+        <Insets topRightBottomLeft="30"/>
+    </padding>
+    <top>
+        <BorderPane prefHeight="50" prefWidth="700"
+                    style="-fx-background-color:#6AA84F">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <left>
+                <HBox>
+                    <padding>
+                        <Insets left="10" />
+                    </padding>
+                    <ImageView>
+                        <Image requestedHeight="80"
+                               requestedWidth="80"
+                               url="@/images/procedures.png"/>
+                    </ImageView>
+                </HBox>
+            </left>
+
+            <right>
+                <HBox>
+                    <padding>
+                        <Insets right="10" top="10" />
+                    </padding>
+                    <Label text="Mes procédures > " textFill="white"
+                           BorderPane.alignment="TOP_RIGHT">
+                        <font>
+                            <Font name="Bell MT Bold" size="18" />
+                        </font>
+                    </Label>
+                    <Label fx:id="nomProc" text="">
+                        <font>
+                            <Font name="Bell MT Bold" size="18" />
+                        </font>
+                    </Label>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10"/>
+            </padding>
+            <GridPane hgap="20" vgap="20">
+
+                <!--Numéro de la procédure-->
+                <Label text="Numéro de la procédure"
+                       GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <font>
+                        <Font name="System" size="18" />
+                    </font>
+                </Label>
+
+                <Label fx:id="numProc"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Label>
+
+                <!--Date de debut-->
+                <Label text="Date de debut"
+                       GridPane.rowIndex="1" GridPane.columnIndex="0">
+                    <font>
+                        <Font name="System" size="18" />
+                    </font>
+                </Label>
+                <Label fx:id="dateDebut"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+
+                </Label>
+
+                <!--Etat de la procédure-->
+                <Label text="Etat de la procédure"
+                       GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <font>
+                        <Font name="System" size="18" />
+                    </font>
+                </Label>
+                <Label  fx:id="etat"
+                        GridPane.rowIndex="2" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold" size="15" />
+                    </font>
+                </Label>
+            </GridPane>
+            <!--Table de listing des étapes-->
+            <TitledPane text="Les étapes">
+                <TabPane fx:id="tabPane" >
+                </TabPane>
+            </TitledPane>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox >
+            <padding>
+                <Insets top="20"/>
+            </padding>
+            <!--Bouton de retourner-->
+            <Button fx:id="retour" onAction="#onRetour" prefHeight="40"
+                    prefWidth="40" style="-fx-background-color:transparent">
+                <graphic>
+                    <ImageView>
+                        <Image requestedHeight="40" requestedWidth="40"
+                               url="@/images/back.png"/>
+                    </ImageView>
+                </graphic>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Label text="Précédent">
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <font>
+                    <Font name="Bell MT Bold" size="20" />
+                </font>
+            </Label>
+        </HBox>
+    </bottom>
+</BorderPane>

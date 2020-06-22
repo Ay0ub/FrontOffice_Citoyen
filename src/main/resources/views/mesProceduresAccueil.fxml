@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<BorderPane prefHeight="600" prefWidth="1200"
+            style="-fx-background-color:#DDD"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.espace_citoyen.controllers.mesProceduresAccueil">
+    <padding>
+        <Insets topRightBottomLeft="30"/>
+    </padding>
+    <top>
+        <BorderPane prefHeight="50" prefWidth="700"
+                    style="-fx-background-color:#6AA84F">
+            <padding>
+                <Insets topRightBottomLeft="5"/>
+            </padding>
+            <left>
+                <HBox>
+                    <ImageView>
+                        <Image requestedHeight="80"
+                               requestedWidth="80"
+                               url="@/images/procedures.png"/>
+                    </ImageView>
+                </HBox>
+            </left>
+
+            <right>
+                <Label text="Mes Procédures" textFill="white"
+                       BorderPane.alignment="TOP_RIGHT">
+                    <padding>
+                        <Insets right="10" top="10" />
+                    </padding>
+                    <font>
+                        <Font name="Bell MT Bold" size="24" />
+                    </font>
+                </Label>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <!--Table de listing des procédures-->
+        <TitledPane text="Liste de mes procédures">
+            <padding>
+                <Insets top="20"/>
+            </padding>
+            <VBox spacing="20">
+                <BorderPane>
+                    <right>
+                        <HBox spacing="10">
+                            <TextField fx:id="textSearch"
+                                       promptText="nom"/>
+                            <Button onAction="#searchProcedure" fx:id="onSearch"
+                                    style="-fx-background-color:#009E0F"
+                                    text="Rechercher"
+                                    textFill="white"/>
+                        </HBox>
+                    </right>
+                </BorderPane>
+
+                <TableView fx:id="tableProcedures">
+                    <padding>
+                        <Insets left="10" right="10" top="10"/>
+                    </padding>
+                    <columns>
+                        <TableColumn fx:id="numero" prefWidth="128" text="Numéro">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="numero" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="nomProc" prefWidth="200"
+                                     text="Nom de la procédure">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nomProc" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="dateDebut" prefWidth="200"
+                                     text="Date de debut">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dateDebut" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="dateFin" prefWidth="200"
+                                     text="Date de fin">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dateFin" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="etat" prefWidth="200"
+                                     text="Etat">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="etat" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="actions" prefWidth="220" text="Actions">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="actions" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+        </TitledPane>
+    </center>
+</BorderPane>

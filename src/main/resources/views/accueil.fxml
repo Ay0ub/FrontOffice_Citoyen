@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.ensak.espace_citoyen.controllers.AccueilController"
+          alignment="CENTER"
+          hgap="30" vgap="30">
+
+    <padding>
+        <Insets topRightBottomLeft="30"/>
+    </padding>
+    <!-- Visualisation des procédures en cours-->
+    <BorderPane GridPane.columnIndex="0"
+                GridPane.rowIndex="0"
+                prefHeight="200"
+                prefWidth="400"
+                style="-fx-background-color:#6AA84F">
+        <top>
+            <HBox>
+                <ImageView>
+                    <Image requestedHeight="80"
+                           requestedWidth="80"
+                           url="@/images/procedures.png"/>
+                </ImageView>
+                <Button fx:id="lancer" alignment="BASELINE_LEFT"
+                        onAction="#OnLancer" prefWidth="260"
+                        style="-fx-background-color:#6AA84F"
+                        text="Mes Procédures" textFill="white">
+                    <font>
+                        <Font name="Bell MT bold" size="20" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </HBox>
+        </top>
+        <bottom>
+            <Label fx:id="nbProcedures" BorderPane.alignment="BOTTOM_RIGHT"
+                   textFill="white" text="">
+                <padding>
+                    <Insets right="20" bottom="10"/>
+                </padding>
+                <font>
+                    <Font name="Bell MT bold" size="20" />
+                </font>
+            </Label>
+        </bottom>
+    </BorderPane>
+
+
+    <!-- Notification -->
+    <BorderPane
+            prefHeight="200"
+            prefWidth="400"
+            style="-fx-background-color:#2B78E4"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="0">
+        <top>
+            <HBox>
+                <ImageView>
+                    <Image requestedHeight="80"
+                           requestedWidth="80"
+                           url="@/images/notification.png"/>
+                </ImageView>
+                <Label text="Notifications" textFill="white">
+                    <padding>
+                        <Insets left="10.0" top="20.0" />
+                    </padding>
+                    <font>
+                        <Font name="Bell MT bold" size="20" />
+                    </font>
+                </Label>
+            </HBox>
+        </top>
+        <bottom>
+            <Label fx:id="nbTerminees" BorderPane.alignment="BOTTOM_RIGHT"
+                   textFill="white" text="">
+                <padding>
+                    <Insets right="20" bottom="10"/>
+                </padding>
+                <font>
+                    <Font name="Bell MT bold" size="20" />
+                </font>
+            </Label>
+        </bottom>
+    </BorderPane>
+</GridPane>

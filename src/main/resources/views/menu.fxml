@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="760.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ensak.espace_citoyen.controllers.MenuController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <HBox style="-fx-background-color:#073763;">
+                <BorderPane prefHeight="30" prefWidth="1200">
+                    <left>
+                        <Label alignment="BASELINE_CENTER" prefWidth="300" style="-fx-background-color: #085394;" text="Espace Citoyen" textFill="white">
+                            <padding>
+                                <Insets topRightBottomLeft="10" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="24" />
+                            </font>
+                        </Label>
+                    </left>
+
+                    <right>
+                        <HBox alignment="CENTER_RIGHT" spacing="20" BorderPane.alignment="CENTER">
+                            <HBox alignment="CENTER" spacing="25">
+                                <padding>
+                                    <Insets topRightBottomLeft="5" />
+                                </padding>
+                                <Button onAction="#logOut" prefHeight="20" prefWidth="20" style="-fx-background-color:#FF0000;">
+                                    <graphic>
+                                        <ImageView>
+                                            <Image requestedHeight="20" requestedWidth="20" url="@/images/signout.png" />
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </HBox>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </HBox>
+        </VBox>
+    </top>
+
+
+    <left>
+        <VBox prefWidth="300" spacing="30" style="-fx-background-color:#073763">
+            <!-- Informations d'en-tête-->
+            <VBox prefWidth="300" spacing="30" style="-fx-background-color:#085394;">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+
+                <!--Avatar pour le citoyen-->
+                <HBox alignment="BASELINE_CENTER">
+                    <padding>
+                        <Insets top="10" />
+                    </padding>
+                    <ImageView>
+                        <Image requestedHeight="120" requestedWidth="120" url="@/images/avatar.png" />
+                    </ImageView>
+                </HBox>
+
+                <!--Les informations du citoyen-->
+                <GridPane alignment="BASELINE_LEFT" hgap="10" vgap="10">
+                    <!--CNI du citoyen-->
+                    <Label text="CNI" textFill="darkorange" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+                    <Label fx:id="cni"  textFill="white" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+
+                    <!--Nom du citoyen-->
+                    <Label text="Nom" textFill="darkorange" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+                    <Label fx:id="nom" textFill="white" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+
+                    <!--Prénom du citoyen-->
+                    <Label text="Prénom" textFill="darkorange" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+                    <Label fx:id="prenom"  textFill="white" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="System Bold" size="16" />
+                        </font>
+                    </Label>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </VBox>
+
+            <!--Les onglets-->
+            <VBox spacing="40">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+
+                <!-- Bouton pour l'accueil-->
+                <Button fx:id="accueil" alignment="BASELINE_LEFT" onAction="#OnAccueil" prefWidth="260" style="-fx-background-color:#073763" text="Acceuil" textFill="white">
+                    <font>
+                        <Font name="Bell MT bold" size="20" />
+                    </font>
+                    <graphic>
+                        <ImageView fx:id="Laccueil">
+                            <Image requestedHeight="20" requestedWidth="20" url="@/images/home.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <!-- Lancer une procédure-->
+                <Button fx:id="lancer" alignment="BASELINE_LEFT"
+                        onAction="#OnLancer" prefWidth="260"
+                        style="-fx-background-color:#073763"
+                        text="Lancer une procédure" textFill="white">
+                    <font>
+                        <Font name="Bell MT bold" size="20" />
+                    </font>
+                    <graphic>
+                        <ImageView fx:id="Llancer">
+                            <Image requestedHeight="20" requestedWidth="20" url="@/images/lancer.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <!-- Bouton pour les procédures en cours-->
+                <Button fx:id="mesProcedures" alignment="BASELINE_LEFT"
+                        onAction="#onProceduresEnCours"
+                        prefWidth="260" style="-fx-background-color:#073763"
+                        text="Mes Procédures en cours" textFill="white" wrapText="true">
+                    <font>
+                        <Font name="Bell MT bold" size="20" />
+                    </font>
+                    <graphic>
+                        <ImageView fx:id="Lprocedures">
+                            <Image requestedHeight="20" requestedWidth="20" url="@/images/procedures.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <BorderPane style="-fx-background-color:#DDD" BorderPane.alignment="CENTER">
+            <center>
+                <AnchorPane prefHeight="640" />
+            </center>
+        </BorderPane>
+    </center>
+
+</BorderPane>
